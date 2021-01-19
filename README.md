@@ -2,4 +2,4 @@
 
 Group 6 - Noah, Najem, Dingus och Varg
 
-diagram.pu
+https://github.com/NoahHakansson/SE-PA1460/blob/main/diagram.pu
