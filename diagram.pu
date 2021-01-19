@@ -1,19 +1,19 @@
 @startuml Test
-class Alpha{
+class Base{
     #x : int
     #y : int
     +Render()
     +Update()
 }
-class Beta
-class Gamma
-class Omega
+class Player
+class Weapon
+class Armor
 class GameEngine
 
-Alpha <|-- Beta
-Beta -* Gamma
-Beta --o Omega
-Beta ---* "1" GameEngine: contains
+Alpha <|-- Player
+Player -* Weapon
+Player --o Armor
+Player ---* "1" GameEngine: contains
 
-GameEngine : -Player : Beta
+GameEngine : -Player : Player
 @enduml
