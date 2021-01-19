@@ -6,3 +6,5 @@ Group 6 - Noah, Najem, Dingus och Varg
 Test Diagram:
 
 ![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/diagram.pu)
+
+# Dingus var här och gjorde en förändring
