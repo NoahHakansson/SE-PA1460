@@ -1,5 +1,5 @@
 @startuml testGameDiagram
-class Base{
+class movingObject{
     #x : int
     #y : int
     +Render()
@@ -10,10 +10,10 @@ class Weapon
 class Armor
 class GameEngine
 
-Base <|-- Player
-Player -* Weapon
-Player --o Armor
-Player ---* "1" GameEngine: contains
+movingObject <|-- Player: is a
+Player -* " 1 " Weapon: has a
+Player --o " 1 "Armor: has a
+Player ---* " 1 " GameEngine: contains
 
 GameEngine : -Player : Player
 @enduml
