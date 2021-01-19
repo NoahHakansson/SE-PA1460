@@ -1,4 +1,4 @@
-@startuml Test
+@startuml testGameDiagram
 class Base{
     #x : int
     #y : int
@@ -10,7 +10,7 @@ class Weapon
 class Armor
 class GameEngine
 
-Alpha <|-- Player
+Base <|-- Player
 Player -* Weapon
 Player --o Armor
 Player ---* "1" GameEngine: contains
