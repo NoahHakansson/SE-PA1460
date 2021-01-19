@@ -9,11 +9,15 @@ class Player
 class Weapon
 class Armor
 class GameEngine
+class dingus 
+class coolness
 
 movingObject <|-- Player: is a
 Player --* " 1 " Weapon: has a
 Player --o " 1 "Armor: has a
 Player ---* " 1 " GameEngine: contains
+
+dingus <- coolness
 
 GameEngine : -Player : Player
 @enduml
