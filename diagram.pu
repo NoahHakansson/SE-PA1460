@@ -1,0 +1,19 @@
+@startuml Test
+class Alpha{
+    #x : int
+    #y : int
+    +Render()
+    +Update()
+}
+class Beta
+class Gamma
+class Omega
+class GameEngine
+
+Alpha <|-- Beta
+Beta -* Gamma
+Beta --o Omega
+Beta ---* "1" GameEngine: contains
+
+GameEngine : -Player : Beta
+@enduml
