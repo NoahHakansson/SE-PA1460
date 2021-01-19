@@ -11,7 +11,7 @@ class Armor
 class GameEngine
 
 movingObject <|-- Player: is a
-Player -* " 1 " Weapon: has a
+Player --* " 1 " Weapon: has a
 Player --o " 1 "Armor: has a
 Player ---* " 1 " GameEngine: contains
 
