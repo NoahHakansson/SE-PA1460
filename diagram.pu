@@ -1,23 +1,20 @@
-@startuml testGameDiagram
-class movingObject{
-    #x : int
-    #y : int
-    +Render()
-    +Update()
-}
-class Player
-class Weapon
-class Armor
-class GameEngine
-class dingus 
-class coolness
-
-movingObject <|-- Player: is a
-Player --* " 1 " Weapon: has a
-Player --o " 1 "Armor: has a
-Player ---* " 1 " GameEngine: contains
-
-dingus <- coolness
-
-GameEngine : -Player : Player
+@startuml
+title Domain Model
+Game -- "*" Scene
+Checkpoint -- "*" GameElement : stores >
+Checkpoint -- Inventory : stores >
+Checkpoint - Game : stores >
+Character <|-- Secretary : is a type of
+GameElement <|-- GameObject : is a
+GameElement <|-- Character : is a
+Scene - "*" GameElement : contains >
+Scene <|-- Inventory : is a type of
+Inventory -- "*" GameObject : contains >
+GameElement -- Event : generates >
+Event -- Notification : generates >
+Event -- GameElement : manipulates >
+Secretary -- Notification : announces >
+GameObject <|-- HelpObject : is a type of
+GameObject <|-- Notification : is a
+GameObject -- "*" InteractionType : has >
 @enduml
