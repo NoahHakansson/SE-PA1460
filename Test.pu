@@ -1,0 +1,12 @@
+@startuml
+
+title Test 
+
+package TestGame{
+
+    class Player
+    class Menu
+}
+
+
+@enduml
