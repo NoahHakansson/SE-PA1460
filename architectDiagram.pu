@@ -1,40 +1,45 @@
 @startuml
 title Mean streets
+top to bottom direction
 
 package storage {
+    class Checkpoint
     class Inventory
     class GameObject
+    class HelpObject
+    class Scene
 }
 
-database SaveFile {
-    class Checkpoint
+database "Save file" {
 }
 
-package UserInterface {}
+package UserInterface {
+
+}
+
+
+package GamePlay {
+    class Game
+    class Secretary
+    class Character
+    class Notification
+    class InteractionType
 
 package GameState {
     class GameElement
     class Event
 }
 
-package GamePlay {
-    class Game
-    class Scene
-    class Secretary
-    class Character
-    class Notification
-    class InteractionType
 }
 
 UserInterface <|... storage
 UserInterface <|... GamePlay
-UserInterface <|... GameState
 
-storage <|... SaveFile
-GamePlay <|... SaveFile
-GameState <|... SaveFile
+storage <|... "Save file"
+GamePlay <|... "Save file"
 
-
+storage-[hidden]down-"Save file"
+GamePlay-[hidden]down-"Save file"
 
 
 Game -- "*" Scene
