@@ -34,10 +34,6 @@ storage <|... SaveFile
 GamePlay <|... SaveFile
 GameState <|... SaveFile
 
-storage -down[hidden]- SaveFile
-GamePlay -down[hidden]- SaveFile
-GameState -down[hidden]- SaveFile
-
 
 
 
