@@ -7,6 +7,12 @@ package testPackage {
     }
     note bottom : "Hello"
 }
+
+package test2 {
+
+}
+
+testPackage .. test2
 note "Link to package" as test
 test .- testPackage
 
