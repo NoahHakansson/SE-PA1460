@@ -1,0 +1,47 @@
+@startuml
+title Domain Model
+
+database SaveFile {
+    class Checkpoint
+}
+
+package Object {
+    class GameObject
+    class HelpObject
+    class InteractionType
+    class Notification
+}
+
+package NPC {
+    class Character
+    class Secretary
+}
+
+package GameLogic {
+    package State {
+        class GameElement
+        class Game
+        class Scene
+    }
+    class Inventory
+    class Event
+}
+
+Game -- "*" Scene
+Checkpoint -- "*" GameElement : stores >
+Checkpoint -- Inventory : stores >
+Checkpoint - Game : stores >
+Character <|-- Secretary : is a type of
+GameElement <|-- GameObject : is a
+GameElement <|-- Character : is a
+Scene - "*" GameElement : contains >
+Scene <|-- Inventory : is a type of
+Inventory -- "*" GameObject : contains >
+GameElement -- Event : generates >
+Event -- Notification : generates >
+Event -- GameElement : manipulates >
+Secretary -- Notification : announces >
+GameObject <|-- HelpObject : is a type of
+GameObject <|-- Notification : is a
+GameObject -- "*" InteractionType : has >
+@enduml
