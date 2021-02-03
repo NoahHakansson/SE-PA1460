@@ -2,6 +2,9 @@
 
 package testPackage {
     artifact System
+    package insidePackage {
+        
+    }
     note bottom : "Hello"
 }
 note "Link to package" as test
