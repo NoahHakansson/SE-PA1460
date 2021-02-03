@@ -1,0 +1,10 @@
+@startuml
+
+package testPackage {
+    artifact System
+    note bottom : "Hello"
+}
+note "Link to package" as test
+test .- testPackage
+
+@enduml
