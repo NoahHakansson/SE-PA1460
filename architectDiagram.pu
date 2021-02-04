@@ -3,7 +3,6 @@ title Mean streets
 top to bottom direction
 
 package storage {
-    class Checkpoint
     class Inventory
     class GameObject
     class HelpObject
@@ -25,21 +24,22 @@ package GamePlay {
     class Notification
     class InteractionType
 
-package GameState {
-    class GameElement
-    class Event
+    package GameState {
+        class GameElement
+        class Event
+    }
 }
 
+package "Lowest-level" {
+    class Checkpoint
 }
 
-UserInterface <|... storage
-UserInterface <|... GamePlay
+"Save file" .. Checkpoint
+UserInterface .. storage
+UserInterface .. GamePlay
 
-storage <|... "Save file"
-GamePlay <|... "Save file"
-
-storage-[hidden]down-"Save file"
-GamePlay-[hidden]down-"Save file"
+GamePlay .. "Lowest-level"
+storage .. "Lowest-level"
 
 
 Game -- "*" Scene
