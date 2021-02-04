@@ -1,20 +1,21 @@
 @startuml
 title Mean streets
 top to bottom direction
+database "Save file" {
+}
+package UserInterface {
 
-package storage {
+}
+
+
+package gameStorage {
     class Inventory
     class GameObject
     class HelpObject
     class Scene
 }
 
-database "Save file" {
-}
 
-package UserInterface {
-
-}
 
 
 package GamePlay {
@@ -30,16 +31,17 @@ package GamePlay {
     }
 }
 
+
 package "Lowest-level" {
     class Checkpoint
 }
 
 "Save file" .. Checkpoint
-UserInterface .. storage
+UserInterface .. gameStorage
 UserInterface .. GamePlay
 
 GamePlay .. "Lowest-level"
-storage .. "Lowest-level"
+gameStorage .. "Lowest-level"
 
 
 Game -- "*" Scene
