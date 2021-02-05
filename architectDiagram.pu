@@ -44,6 +44,7 @@ InteractionType -[hidden]up- GameState
 Character -[hidden]up- GameState
 Secretary -[hidden]up- GameState
 Notification -[hidden]up- GameState
+InteractionType -[hidden]down- Character
 
 Game - gameStorage
 Game -- GamePlay
