@@ -7,7 +7,7 @@ package UserInterface {
 
 }
 
-
+package GameLogic {
 package gameStorage {
     class Inventory
     class GameObject
@@ -30,9 +30,9 @@ package GamePlay {
         class Event
     }
 }
+}
 
-
-package "Lowest-level" {
+package Storage {
     class Checkpoint
 }
 
@@ -40,8 +40,8 @@ package "Lowest-level" {
 UserInterface .. gameStorage
 UserInterface .. GamePlay
 
-GamePlay .. "Lowest-level"
-gameStorage .. "Lowest-level"
+GamePlay .. Storage
+gameStorage .. Storage
 
 
 Game -- "*" Scene
