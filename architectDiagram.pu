@@ -19,11 +19,10 @@ package GameLogic {
 
 
     package GamePlay {
+        class InteractionType
         class Secretary
         class Character
         class Notification
-        class InteractionType
-
         package GameState {
             class GameElement
             class Event
@@ -37,9 +36,15 @@ package Storage {
 
 "Save file".. Storage
 UserInterface .. Game
+SceneManager .. Scene
 
 Storage .. gameStorage
 
+InteractionType -[hidden]up- GameState
+Character -[hidden]up- GameState
+Secretary -[hidden]up- GameState
+Notification -[hidden]up- GameState
+InteractionType -[hidden]up- Character
 
 Game - gameStorage
 Game -- GamePlay
