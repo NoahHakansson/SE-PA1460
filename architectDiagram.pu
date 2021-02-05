@@ -4,63 +4,54 @@ top to bottom direction
 database "Save file" {
 }
 package UserInterface {
-
+    package MenuManager {}
+    package SceneManager {}
 }
 
 package GameLogic {
-package gameStorage {
-    class Inventory
-    class GameObject
-    class HelpObject
-    class Scene
-}
-
-
-
-
-package GamePlay {
     class Game
-    class Secretary
-    class Character
-    class Notification
-    class InteractionType
-
-    package GameState {
-        class GameElement
-        class Event
+    package gameStorage {
+        class Inventory
+        class GameObject
+        class HelpObject
+        class Scene
     }
-}
+
+
+    package GamePlay {
+        class Secretary
+        class Character
+        class Notification
+        class InteractionType
+
+        package GameState {
+            class GameElement
+            class Event
+        }
+    }
 }
 
 package Storage {
     class Checkpoint
 }
 
-"Save file" .. Checkpoint
-UserInterface .. gameStorage
-UserInterface .. GamePlay
+"Save file".. Storage
+UserInterface .. Game
 
-GamePlay .. Storage
-gameStorage .. Storage
+Storage .. gameStorage
 
 
-Game -- "*" Scene
+Game - gameStorage
+Game -- GamePlay
 
-Checkpoint -- "*" GameElement : stores >
-Checkpoint -- Inventory : stores >
-Checkpoint - Game : stores >
 Character <|-- Secretary : is a type of
-GameElement <|-- GameObject : is a
-GameElement <|-- Character : is a
-Scene - "*" GameElement : contains >
 Scene <|-- Inventory : is a type of
 Inventory -- "*" GameObject : contains >
-GameElement -- Event : generates >
-Event -- Notification : generates >
-Event -- GameElement : manipulates >
+
 Secretary -- Notification : announces >
 GameObject <|-- HelpObject : is a type of
-GameObject <|-- Notification : is a
-GameObject -- "*" InteractionType : has >
+
+GameElement -- Event : generates >
+Event -- GameElement : manipulates >
 
 @enduml
