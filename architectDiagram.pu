@@ -40,7 +40,7 @@ package Storage {
 
 "Save file".. Storage
 MenuManager .. Game
-SceneManager .. Scene
+SceneManager .. Game
 Storage . gameStorage
 
 
