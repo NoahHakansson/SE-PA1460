@@ -51,7 +51,7 @@ Notification -[hidden]up- GameState
 InteractionType -[hidden]down- Character
 
 'Game - gameStorage
-'Game - GamePlay
+Game - GamePlay
 
 Game -- "*" Scene
 Checkpoint -- "*" GameElement : stores >
