@@ -1,4 +1,8 @@
 @startuml
+
+skinparam nodesep 50
+skinparam ranksep 0
+
 title Mean streets
 top to bottom direction
 database "Save file" {
@@ -37,8 +41,8 @@ package Storage {
 "Save file".. Storage
 UserInterface .. Game
 SceneManager .. Scene
-
 Storage .. gameStorage
+
 
 InteractionType -[hidden]up- GameState
 Character -[hidden]up- GameState
@@ -49,14 +53,21 @@ InteractionType -[hidden]down- Character
 Game - gameStorage
 Game -- GamePlay
 
+Game -- "*" Scene
+Checkpoint -- "*" GameElement : stores >
+Checkpoint -- Inventory : stores >
+Checkpoint - Game : stores >
 Character <|-- Secretary : is a type of
+GameElement <|-- GameObject : is a
+GameElement <|-- Character : is a
+Scene - "*" GameElement : contains >
 Scene <|-- Inventory : is a type of
 Inventory -- "*" GameObject : contains >
-
+GameElement -- Event : generates >
+Event -- Notification : generates >
+Event -- GameElement : manipulates >
 Secretary -- Notification : announces >
 GameObject <|-- HelpObject : is a type of
-
-GameElement -- Event : generates >
-Event -- GameElement : manipulates >
-
+GameObject <|-- Notification : is a
+GameObject -- "*" InteractionType : has >
 @enduml
