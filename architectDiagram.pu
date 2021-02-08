@@ -1,7 +1,7 @@
 @startuml
 
 skinparam nodesep 50
-skinparam ranksep 0
+skinparam ranksep 10
 
 title Mean streets
 top to bottom direction
@@ -51,7 +51,7 @@ Notification -[hidden]up- GameState
 InteractionType -[hidden]down- Character
 
 Game - gameStorage
-Game -- GamePlay
+Game - GamePlay
 
 Game -- "*" Scene
 Checkpoint -- "*" GameElement : stores >
