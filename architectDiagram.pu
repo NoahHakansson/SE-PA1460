@@ -49,10 +49,10 @@ Character -[hidden]up- GameState
 Secretary -[hidden]up- GameState
 Notification -[hidden]up- GameState
 InteractionType -[hidden]down- Character
-GamePlay -[hidden]l- gameStorage
+'GamePlay -[hidden]l- gameStorage
 
-'Game - gameStorage
-'Game - GamePlay
+Game - gameStorage
+Game - GamePlay
 
 Game -- "*" Scene
 Checkpoint -- "*" GameElement : stores >
