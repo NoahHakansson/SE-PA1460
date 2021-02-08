@@ -41,7 +41,7 @@ package Storage {
 "Save file".. Storage
 UserInterface .. Game
 SceneManager .. Scene
-Storage .. gameStorage
+Storage . gameStorage
 
 
 InteractionType -[hidden]up- GameState
