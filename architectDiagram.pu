@@ -5,7 +5,7 @@ skinparam ranksep 20
 
 title Mean streets
 top to bottom direction
-database "Save file" {
+database Database {
 }
 package UserInterface {
     package MenuManager {}
@@ -14,7 +14,7 @@ package UserInterface {
 
 package GameLogic {
     class Game
-    package gameStorage {
+    component gameStorage {
         class Inventory
         class GameObject
         class HelpObject
@@ -27,7 +27,7 @@ package GameLogic {
         class Secretary
         class Character
         class Notification
-        package GameState {
+        component GameState {
             class GameElement
             class Event
         }
@@ -38,7 +38,7 @@ package Storage {
     class Checkpoint
 }
 
-"Save file".. Storage
+Database .. Storage
 MenuManager .. Game
 SceneManager .. Game
 Storage . gameStorage
@@ -49,7 +49,6 @@ Character -[hidden]up- GameState
 Secretary -[hidden]up- GameState
 Notification -[hidden]up- GameState
 InteractionType -[hidden]down- Character
-'GamePlay -[hidden]l- gameStorage
 
 Game . gameStorage
 Game . GamePlay
