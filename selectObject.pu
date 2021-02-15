@@ -1,14 +1,14 @@
 @startuml
 title selectObject(theGameObjectName)
-[-> ":Game" ++
-":Game" -> ":Scene" ++ : selectObject(theGameObjectID)
+[-> ":Game" ++: selectedGameItem(theGameObjectName)
+":Game" -> "currentScene:Scene" ++ : selectObject(theGameObjectName)
 
-":Scene" -> ":IDSanitizer" ++: validOject(gameObjectID)
-note right: Early return if ID is invalid
-":Scene" -> ":Scene": currentObject = getObject(gameObjectID)
-":Scene" -> ":currentObject": interactionTypeOptions = formatInteractionTypes()
-":Game" <- ":Scene": interactionTypeOptions
-":Game" -->[: Shows list of interaction options
+"currentScene:Scene" -> ":IDSanitizer" : validOject(gameObjectName)
+note right: Early return if name is invalid
+"currentScene:Scene" -> "currentScene:Scene": gameObject current = getObject(gameObjectName)
+"currentScene:Scene" -> "current:gameObject": string interactionTypeList = formatInteractionTypes()
+return string interactionTypeOptions
+return Shows list of interaction types
  
 
 @enduml
