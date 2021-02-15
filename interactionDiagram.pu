@@ -1,12 +1,14 @@
 @startuml
-title interactionDiagram1
+title selectObject(theGameObjectName)
 [-> ":Game" ++
 ":Game" -> ":Scene" ++ : selectObject(theGameObjectID)
 
-":Scene" -> ":IDSanitizer" ++: itemID = sanitizeID(gameObjectID)
-":Scene" -> ":IDSanitizer" : validOject(gameObjectID)
+":Scene" -> ":IDSanitizer" ++: validOject(gameObjectID)
 note right: Early return if ID is invalid
-
-":Scene" -> ":gameObject" ++: interactionTypeArray = getInteractionTypes(itemID)
+":Scene" -> ":Scene": currentObject = getObject(gameObjectID)
+":Scene" -> ":currentObject": interactionTypeOptions = formatInteractionTypes()
+":Game" <- ":Scene": interactionTypeOptions
+":Game" -->[: Shows list of interaction options
+ 
 
 @enduml
