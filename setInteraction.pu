@@ -1,0 +1,11 @@
+@startuml
+
+title setInteractionOptions(theOptions)
+[-> ":Game" ++
+":Game" -> ":Scene" ++: setQuery(theOptions)
+":Scene" -> 
+
+
+
+
+@enduml
