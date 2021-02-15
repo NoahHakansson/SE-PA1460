@@ -10,4 +10,9 @@ selectObject:
 
 ![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/selectObject.pu)
 
+selectInteraction:
+
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/selectInteraction.pu)
+
+
 
