@@ -1,0 +1,14 @@
+@startuml
+
+title selectInteraction(theInteractionType)
+[-> ":Game" ++
+":Game" -> ":Scene" ++ : selectInteraction(theInteractionType)
+":Scene" -> ":currentObject" ++ : getOptions(theInteractionType)
+":currentObject" -> ":currentObject": currentInteractionType = getInteraction(theInteractionType)
+":currentObject" -> ":currentInteractionType": optionList = listOptions()
+":currentObject" -> ":Scene": optionList
+":Scene" -> ":Game": optionList
+":Game" -->[: Shows options
+ 
+
+@enduml
