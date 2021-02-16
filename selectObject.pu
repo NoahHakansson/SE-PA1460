@@ -1,9 +1,9 @@
 @startuml
 title selectObject(theGameObjectName)
-[-> ":Game" ++: selectedGameItem(theGameObjectName)
-":Game" -> "currentScene:Scene" ++ : selectObject(theGameObjectName)
+[-> ":Game" ++: selectObject(theGameObjectName)
+":Game" -> "currentScene:Scene" ++ : getInteractionList(theGameObjectName)
 
-"currentScene:Scene" -> ":IDSanitizer" : validOject(gameObjectName)
+"currentScene:Scene" -> ":IDSanitizer" : validOject(theGameObjectName)
 note right: Early return if name is invalid
 "currentScene:Scene" -> "currentScene:Scene": gameObject current = getObject(gameObjectName)
 "currentScene:Scene" -> "current:gameObject": string interactionTypeList = formatInteractionTypes()
