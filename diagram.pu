@@ -10,7 +10,7 @@ GameElement <|-- Character : is a
 Scene - "*" GameElement : contains >
 Scene <|-- Inventory : is a type of
 Inventory -- "*" GameObject : contains >
-Game -"1" EventManager : Has >
+Scene -"1" EventManager : Has >
 EventManager - Event : generates >
 Event -- Notification : generates >
 Event -- GameElement : manipulates >
