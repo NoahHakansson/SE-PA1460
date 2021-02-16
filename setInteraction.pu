@@ -1,26 +1,16 @@
 @startuml
 
 title setInteractionOptions(theOptions)
-[-> "current:Scene" ++: getOptionsResponse(theOptions) 
+[-> "current:Scene" ++: setInteractionOptions(theOptions)
 "current:Scene" -> "current:gameObject" ++: bool optionSet = confirmOptions(theOptions)
 "current:gameObject" -> ":querySanitizer": theOptions = sanitizeQuery(theOptions)
 "current:gameObject" -> "current:interactionType" ++: validOptions(theOptions)
 note right: Has been selected in past interactionDiagram
 return bool isValid = bool
-"current:gameObject" -> "current:interactionType" : setInteractionOptions(theOptions)
+"current:gameObject" -> "current:interactionType" : setOptions(theOptions)
 note right: Only happens if isValid == true
 return isValid
 "current:Scene" -> "current:Scene": string response = createResponse(isValid)
 return response
-
-
-
-
-
-
-
-
-
-
 
 @enduml

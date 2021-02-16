@@ -1,6 +1,7 @@
 @startuml
 
 title startInteraction()
+[-> ":Scene" ++ : startInteraction()
 ":Scene" -> ":eventManager" ++ : startEvent(selectedGameObject)
 ":eventManager" --> ":Event" ** : create()
 ":eventManager" -> ":Event" ++: doEvent(selectedGameObject)
@@ -9,6 +10,7 @@ title startInteraction()
 "selected:gameObject" -> "selected:gameObject": string eventResponse = createEventResponse()
 return response 
 return response 
+return response
 return response
 
 @enduml
