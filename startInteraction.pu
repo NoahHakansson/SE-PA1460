@@ -6,7 +6,7 @@ title startInteraction()
 ":eventManager" --> ":Event" ** : create()
 ":eventManager" -> ":Event" ++: doEvent(selectedGameObject)
 ":Event" -> "selected:gameObject" ++: getEventActions()
-"selected:gameObject" -> "selected:gameObject": string eventActions = eventActions()
+"selected:gameObject" -> "selected:interactionType": string eventActions = eventActions()
 return eventActions
 ":Event" -> ":Event": manipulateGameObject(eventActions)
 ":Event" -> ":Event": string response = formatResponse(eventActions)
