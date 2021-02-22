@@ -13,10 +13,11 @@ class Scene {
     +isAvailable(theCharacter)
 }
 
-class PhoneBook <<hello>> {
+class PhoneBook #LightBlue{
     --
     +getContactMethod(theCharacter)
 }
+
 
 class CharacterInterface {
     -Character currentlyActive
@@ -60,6 +61,18 @@ class plotEngine {
 
 ' Relations
 ' --------------------
+Game --o "1" Scene
+Game -- "1" PhoneBook
+Game -- "1" CharacterInterface
+
+CharacterInterface - "1" CharacterRepository
+CharacterInterface - "1" inputSanitizer
+
+Character "*" --o CharacterRepository
+CharacterInterface --o "1" Character
+Character -- "1" interactionEngine
+Character -- "1" plotEngine
+
 
 
 @enduml
