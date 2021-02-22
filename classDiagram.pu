@@ -1,0 +1,65 @@
+@startuml
+
+' Add Classes, methods, and attributes:
+' --------------------
+class Game {
+    -Scene currentlyActive
+    --
+    +initiateConversation(theCharacter)
+}
+
+class Scene {
+    --
+    +isAvailable(theCharacter)
+}
+
+class PhoneBook <<hello>> {
+    --
+    +getContactMethod(theCharacter)
+}
+
+class CharacterInterface {
+    -Character currentlyActive
+    -response
+    -safeQuery
+    --
+    +create(theCharacter)
+    +activate()
+    +sendQuery(theQuery)
+}
+
+class Character {
+    -parsedQuery
+    --
+    +getInitialGreeting()
+    +query(safeQuery)
+
+}
+
+class CharacterRepository {
+    --
+    +getCharacter(theCharacter)
+}
+
+class inputSanitizer {
+    --
+    +sanitiseInput(theQuery)
+}
+
+class interactionEngine {
+    --
+    +create()
+    +parseQuery(theQuery)
+    +formatResponse(theResponse, nextConversationOptions)
+}
+
+class plotEngine {
+    --
+    +getPlotState()
+}
+
+' Relations
+' --------------------
+
+
+@enduml
