@@ -1,0 +1,78 @@
+@startuml
+
+skinparam nodesep 60
+skinparam ranksep 20
+
+title Mean streets
+top to bottom direction
+database Database {
+}
+package UserInterface {
+    package MenuManager {}
+    package SceneManager {}
+}
+
+package GameLogic {
+    class Game
+    component gameStorage {
+        class Inventory
+        class Scene
+    }
+
+
+    package GamePlay {
+        class InteractionType
+        class GameElement
+        class GameObject
+        class HelpObject
+        class Notification
+        component GameObjectState {
+            class Event
+            class EventManager
+        }
+        component GamePlot {
+            class Secretary
+            class Character
+        }
+    }
+}
+
+package Storage {
+    class Checkpoint
+}
+
+Database .. Storage
+MenuManager .. Game
+SceneManager .. Game
+Storage . gameStorage
+
+
+InteractionType -[hidden]up- GameObjectState
+Character -[hidden]up- GameObjectState
+Secretary -[hidden]up- GameObjectState
+Notification -[hidden]up- GameObjectState
+InteractionType -[hidden]down- Character
+
+
+Game . gameStorage
+Game . GamePlay
+
+Game -- "*" Scene
+Checkpoint -- "*" GameElement : stores >
+Checkpoint -- Inventory : stores >
+Checkpoint - Game : stores >
+Character <|-- Secretary : is a type of
+GameElement <|-- GameObject : is a
+GameElement <|-- Character : is a
+Scene - "*" GameElement : contains >
+Scene <|-- Inventory : is a type of
+Inventory -- "*" GameObject : contains >
+EventManager "1" - Scene : Has >
+EventManager - Event : generates >
+Event -- Notification : generates >
+Event -- GameElement : manipulates >
+Secretary -- Notification : announces >
+GameObject <|-- HelpObject : is a type of
+GameObject <|-- Notification : is a
+GameObject -- "*" InteractionType : has >
+@enduml
