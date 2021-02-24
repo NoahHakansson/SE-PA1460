@@ -2,13 +2,13 @@
 
 ### Group 6 - Noah, Najem, Dingus och Varg
 
-Class Diagram:
+Domain Model:
 
 ![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/diagram.pu)
 
-selectObject:
+Class Diagram:
 
-![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/selectObject.pu)
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/classDiagram.pu)
 
 selectInteraction:
 
