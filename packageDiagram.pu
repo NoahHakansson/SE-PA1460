@@ -10,6 +10,7 @@ database Database {
 package UserInterface {
     package MenuManager {}
     package SceneManager {}
+    package CharacterManager {}
 }
 
 package GameLogic {
@@ -44,6 +45,7 @@ package Storage {
 Database .. Storage
 MenuManager .. Game
 SceneManager .. Game
+CharacterManager .. Game
 Storage . gameStorage
 
 
@@ -55,7 +57,7 @@ InteractionType -[hidden]down- Character
 
 
 Game . gameStorage
-Game . GamePlay
+Game .. GamePlay
 
 Game -- "*" Scene
 Checkpoint -- "*" GameElement : stores >
