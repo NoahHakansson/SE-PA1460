@@ -10,9 +10,9 @@ Class Diagram:
 
 ![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/classDiagram.pu)
 
-selectInteraction:
+Package Diagram:
 
-![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/selectInteraction.pu)
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NoahHakansson/SE-PA1460/main/packageDiagram.pu)
 
 
 
