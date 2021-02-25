@@ -5,6 +5,7 @@ skinparam ranksep 20
 
 title Mean streets
 top to bottom direction
+
 database Database {
 }
 package UserInterface {
@@ -14,10 +15,26 @@ package UserInterface {
 }
 
 package GameLogic {
-    class Game
+    class Game #LightBlue {
+        -Scene currentlyActive
+        --
+        +initiateConversation(theCharacter)
+    }
     component gameStorage {
         class Inventory
-        class Scene
+        class Scene #LightBlue {
+            -Character currentlyActive
+            -response
+            -safeQuery
+            --
+            +isAvailable(theCharacter)
+            +getContactMethod(theCharacter)
+            +getCharacter(theCharacter)
+            +activate()
+            +sendQuery(theQuery)
+            +sanitiseInput(theQuery)
+            +getPlotState()
+        }
     }
 
 
@@ -33,7 +50,15 @@ package GameLogic {
         }
         component GamePlot {
             class Secretary
-            class Character
+            class Character #LightBlue{
+                -parsedQuery
+                --
+                +getInitialGreeting()
+                +query(safeQuery)
+                +parseQuery(theQuery)
+                +formatResponse(theResponse, nextConversationOptions)
+
+            }
         }
     }
 }
