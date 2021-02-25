@@ -9,24 +9,17 @@ class Game {
 }
 
 class Scene {
-    --
-    +isAvailable(theCharacter)
-}
-
-class PhoneBook #LightBlue{
-    --
-    +getContactMethod(theCharacter)
-}
-
-
-class CharacterInterface {
     -Character currentlyActive
     -response
     -safeQuery
     --
-    +create(theCharacter)
+    +isAvailable(theCharacter)
+    +getContactMethod(theCharacter)
+    +getCharacter(theCharacter)
     +activate()
     +sendQuery(theQuery)
+    +sanitiseInput(theQuery)
+    +getPlotState()
 }
 
 class Character {
@@ -34,44 +27,16 @@ class Character {
     --
     +getInitialGreeting()
     +query(safeQuery)
-
-}
-
-class CharacterRepository {
-    --
-    +getCharacter(theCharacter)
-}
-
-class inputSanitizer {
-    --
-    +sanitiseInput(theQuery)
-}
-
-class interactionEngine {
-    --
-    +create()
     +parseQuery(theQuery)
     +formatResponse(theResponse, nextConversationOptions)
-}
 
-class plotEngine {
-    --
-    +getPlotState()
 }
 
 ' Relations
 ' --------------------
 Game --o "1" Scene
-Game -- "1" PhoneBook
-Game -- "1" CharacterInterface
 
-CharacterInterface - "1" CharacterRepository
-CharacterInterface - "1" inputSanitizer
-
-Character "*" --o CharacterRepository
-CharacterInterface --o "1" Character
-Character -- "1" interactionEngine
-Character -- "1" plotEngine
+Character "*" --o Scene
 
 
 
