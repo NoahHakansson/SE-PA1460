@@ -4,6 +4,7 @@
 class interactionType {
 protected:
     std::vector<std::string> OptionList;
+    std::string option = "";
 public:
     std::string virtual getName() = 0;
 };

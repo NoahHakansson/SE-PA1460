@@ -15,15 +15,12 @@ TEST_CASE("selectObject") {
     }
 }
 TEST_CASE("setInteractionOptions") {
-    WHEN("Object is a 'Ball' and options are Move it,Pick up") {
-        std::string interactions = "Move it, pick up";
-        THEN("'Move it' Should return 'Gently,Hard,Barbaric' ") {
+    WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Gently'") {
+        std::string theOption = "Gently";
+        THEN("Option 'Gently' Should return 'SUCCESS' ") {
             REQUIRE
-                (interface.setInteractionOptions(optionOne) == "Gently,Hard,Barbaric");
+                (interface.setInteractionOption(theOption) == "SUCCESS");
         }
-        THEN("'Pick up' Should return 'Gently,Hard' ") {
-            REQUIRE
-                (interface.setInteractionOptions(optionTwo) == "Gently,Hard");
-        }
+        
     }
 }

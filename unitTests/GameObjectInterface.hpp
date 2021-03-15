@@ -11,5 +11,5 @@ private:
 public:
     GameObjectInterface();
     std::string selectGameObject(std::string theGameObject);
-    std::string setInteractionOptions(std::string theOptions);
+    std::string setInteractionOption(std::string theOptions);
 };
