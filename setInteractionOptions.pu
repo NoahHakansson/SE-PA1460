@@ -1,0 +1,8 @@
+[-> "GameObjectInterface:" ++: setInteractionOptions(string theOptions)
+"GameObjectInterface:" -> "CurrentObject:GameObject" ++: setCurrentInteractionOptions(String theOptions)
+"CurrentObject:GameObject" -> "CurrentType:InteractionType" ++: setOptions(string theOptions)
+"CurrentType:InteractionType" -> "CurrentType:InteractionType": string Option = theOptions
+"CurrentType:InteractionType" -> "CurrentType:InteractionType": confirmationMessage = optionConfirmation()
+return confirmationMessage
+return confirmationMessage
+return confirmationMessage
