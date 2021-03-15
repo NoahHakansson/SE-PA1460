@@ -1,0 +1,12 @@
+@startuml object
+
+[-> "GameObjectInterface:" ++: selectObject(theGameObject)
+"GameObjectInterface:" -> "GameObjectInterface:": CurrentObject = getGameObject(theGameObject)
+"GameObjectInterface:" -> "CurrentObject:GameObject" ++: returnList = listInteractionTypes()
+    loop until all stored strategies has been called
+    "CurrentObject:GameObject" -> "interactionStrategy:": returnList += getName()
+    end
+    return returnList
+    return returnList
+
+@enduml
