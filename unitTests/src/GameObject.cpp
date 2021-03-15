@@ -13,7 +13,11 @@ std::string GameObject::getObjectName() { return objectName; }
 std::string GameObject::listInteractionTypes() {
     std::string returnList = "Interactions : ";
     for (int i = 0;i < interactionList.size();i++) {
-        returnList += (interactionList[i]->getName() + ",");
+        returnList += (interactionList[i]->getName());
+        if (i < interactionList.size() -1)
+        {
+            returnList += ",";
+        }
     }
 
     return returnList;

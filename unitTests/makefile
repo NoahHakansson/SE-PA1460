@@ -1,7 +1,5 @@
-INCLUDE_DIRS= include
-INC_PARAMS=$(foreach d, $(INCLUDE_DIRS), -I$d)
 APP_NAME=uTests
-FLAGS=-Wall -o $(APP_NAME) $(INC_PARAMS)
+FLAGS=-Wall -o $(APP_NAME)
 
 APP_SRC=tests.cpp
 SRC:=$(shell find src -name '*.cpp')
