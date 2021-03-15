@@ -1,9 +1,9 @@
-@startuml setInteractionOptions
+@startuml setInteractionOption
 
-[-> "GameObjectInterface:" ++: setInteractionOptions(string theOptions)
-"GameObjectInterface:" -> "CurrentObject:GameObject" ++: setCurrentInteractionOptions(String theOptions)
-"CurrentObject:GameObject" -> "CurrentType:InteractionType" ++: setOptions(string theOptions)
-"CurrentType:InteractionType" -> "CurrentType:InteractionType": string Option = theOptions
+[-> "GameObjectInterface:" ++: setInteractionOption(string theOption)
+"GameObjectInterface:" -> "CurrentObject:GameObject" ++: setCurrentInteractionOption(String theOption)
+"CurrentObject:GameObject" -> "CurrentType:InteractionType" ++: setOptions(string theOption)
+"CurrentType:InteractionType" -> "CurrentType:InteractionType": string Option = theOption
 "CurrentType:InteractionType" -> "CurrentType:InteractionType": confirmationMessage = optionConfirmation()
 return confirmationMessage
 return confirmationMessage

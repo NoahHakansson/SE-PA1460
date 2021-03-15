@@ -20,3 +20,7 @@ std::string GameObjectInterface::selectGameObject(std::string theGameObject) {
 
     return CurrentObject.listInteractionTypes();
 }
+
+std::string GameObjectInterface::setInteractionOptions(std::string theOptions) {
+    
+}
