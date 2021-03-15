@@ -1,4 +1,5 @@
 @startuml
+title: test
 
 package testPackage {
     artifact System

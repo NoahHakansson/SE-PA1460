@@ -20,19 +20,21 @@ package GameLogic {
         --
         +initiateConversation(theCharacter)
     }
+    class InputSanitiser #LightBlue{
+        +sanitiseInput(theQuery)
+    }
     component gameStorage {
         class Inventory
         class Scene #LightBlue {
-            -Character currentlyActive
-            -response
-            -safeQuery
             --
             +isAvailable(theCharacter)
-            +getContactMethod(theCharacter)
-            +getCharacter(theCharacter)
-            +activate()
-            +sendQuery(theQuery)
-            +sanitiseInput(theQuery)
+        }
+        class PhoneBook #LightBlue{
+           + getContactMethod(theCharacter)
+        }
+        class CharacterRepository #LightBlue{
+            + getCharacter(theCharacter)
+            + getInitalGreeting()
         }
     }
 
@@ -47,6 +49,14 @@ package GameLogic {
             class Event
             class EventManager
         }
+        class CharacterInterface #LightBlue{
+            - -Character currentlyActive
+            - response
+            - safeQuery
+            + create(theCharacter)
+            + activate()
+            + sendQuery(theQuery)
+        }
         component GamePlot {
             class Secretary
             class Character #LightBlue{
@@ -54,10 +64,15 @@ package GameLogic {
                 --
                 +getInitialGreeting()
                 +query(safeQuery)
-                +parseQuery(theQuery)
-                +formatResponse(theResponse, nextConversationOptions)
+            }
+            class PlotEngine #LightBlue{
                 +getPlotState()
             }
+        }
+        class InteractionEngine #LightBlue{
+            + create()
+            +parseQuery(theQuery)
+            +formatResponse(theResponse, nextConversationOptions)
         }
     }
 }
@@ -72,6 +87,8 @@ SceneManager .. Game
 CharacterManager .. Game
 Storage . gameStorage
 
+CharacterRepository --> "*" Character
+
 
 InteractionType -[hidden]up- GameObjectState
 Character -[hidden]up- GameObjectState
@@ -82,6 +99,13 @@ InteractionType -[hidden]down- Character
 
 Game . gameStorage
 Game .. GamePlay
+Game -- "1" PhoneBook
+Game -- "1" CharacterInterface
+Character -- "1" InteractionEngine
+PlotEngine - Character
+CharacterInterface -- "1" Character
+CharacterInterface -- "1" CharacterRepository
+InputSanitiser "1" <-- CharacterInterface
 
 Game -- "*" Scene
 Checkpoint -- "*" GameElement : stores >
