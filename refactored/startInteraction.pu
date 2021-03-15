@@ -1,3 +1,5 @@
+@startuml startinteraction
+
 [-> "GameObjectInterface:" ++: startinteraction()
 "GameObjectInterface:" -> "CurrentObject:GameObject" ++: startCurrentInteraction()
 "CurrentObject:GameObject" -> "CurrentType:InteractionType": interactionresponse = executeInteraction()
@@ -5,9 +7,4 @@
 return interactionresponse
 return interactionresponse
 
-
-
-
-
-
-
+@enduml

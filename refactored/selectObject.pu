@@ -1,4 +1,4 @@
-@startuml object
+@startuml selectObject
 
 [-> "GameObjectInterface:" ++: selectObject(theGameObject)
 "GameObjectInterface:" -> "GameObjectInterface:": CurrentObject = getGameObject(theGameObject)

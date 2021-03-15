@@ -1,3 +1,5 @@
+@startuml setInteractionOptions
+
 [-> "GameObjectInterface:" ++: setInteractionOptions(string theOptions)
 "GameObjectInterface:" -> "CurrentObject:GameObject" ++: setCurrentInteractionOptions(String theOptions)
 "CurrentObject:GameObject" -> "CurrentType:InteractionType" ++: setOptions(string theOptions)
@@ -6,3 +8,5 @@
 return confirmationMessage
 return confirmationMessage
 return confirmationMessage
+
+@enduml

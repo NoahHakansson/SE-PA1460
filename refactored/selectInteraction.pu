@@ -1,4 +1,4 @@
-@startuml
+@startuml selectInteraction
 
 [-> "GameObjectInterface:" ++: selectInteraction(theInteractionType)
 "GameObjectInterface:" -> "CurrentObject:GameObject" ++: startInteraction(String theInteractionType)
