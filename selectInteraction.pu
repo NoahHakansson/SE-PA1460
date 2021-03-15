@@ -1,14 +1,13 @@
 @startuml
 
-title selectInteraction(theInteractionType)
-[-> ":Game" ++: selectInteraction(theInteractionType)
-":Game" -> "currentScene:Scene" ++ : getOptionList(theInteractionType)
-"currentScene:Scene" -> "current:gameObject" ++ : getFormattedList(theInteractionType)
-note right: Game object is already selected from past diagram
-"current:gameObject" -> "current:gameObject": interactionType current = getInteraction(theInteractionType)
-"current:gameObject" -> "current:InteractionType": optionList = listOptions()
-return optionList
-return optionList
-":Game" -->[: optionList
- 
+[-> "GameObjectInterface:" ++: selectInteraction(theInteractionType)
+"GameObjectInterface:" -> "CurrentObject:GameObject" ++: startInteraction(String theInteractionType)
+"CurrentObject:GameObject" -> "CurrentObject:GameObject": CurrentType = selectStrategy(theInteractionType)
+return
+"GameObjectInterface:" -> "CurrentObject:GameObject" ++:returnList = listCurrentInteractionOptions()
+"CurrentObject:GameObject" -> "CurrentType:InteractionType" ++: returnList = listOptions()
+return returnList
+return returnList
+return returnList
+
 @enduml

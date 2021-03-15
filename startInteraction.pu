@@ -1,17 +1,13 @@
-@startuml
+[-> "GameObjectInterface:" ++: startinteraction()
+"GameObjectInterface:" -> "CurrentObject:GameObject" ++: startCurrentInteraction()
+"CurrentObject:GameObject" -> "CurrentType:InteractionType": interactionresponse = executeInteraction()
+"CurrentObject:GameObject" -> "CurrentObject:GameObject": CurrentState = changeState(interactionresponse)
+return interactionresponse
+return interactionresponse
 
-title startInteraction()
-[-> ":Scene" ++ : startInteraction()
-":Scene" -> ":eventManager" ++ : startEvent(selectedGameObject)
-":eventManager" --> ":Event" ** : create()
-":eventManager" -> ":Event" ++: doEvent(selectedGameObject)
-":Event" -> "selected:gameObject" ++: getEventActions()
-"selected:gameObject" -> "selected:interactionType": string eventActions = eventActions()
-return eventActions
-":Event" -> ":Event": manipulateGameObject(eventActions)
-":Event" -> ":Event": string response = formatResponse(eventActions)
-return response 
-return response
-return response
 
-@enduml
+
+
+
+
+
