@@ -14,13 +14,22 @@ TEST_CASE("selectObject") {
         }
     }
 }
+
+TEST_CASE("selectInteraction"){
+    // TODO: selectInteraction
+}
+
 TEST_CASE("setInteractionOptions") {
-    WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Gently'") {
-        std::string theOption = "Gently";
-        THEN("Option 'Gently' Should return 'SUCCESS' ") {
+    WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Barbaric'") {
+        std::string theOption = "Barbaric";
+        THEN("Option 'Barbaric' Should return 'SUCCESS' ") {
             REQUIRE
                 (interface.setInteractionOption(theOption) == "SUCCESS");
         }
         
     }
+}
+
+TEST_CASE("startInteraction"){
+    // TODO: startInteraction
 }

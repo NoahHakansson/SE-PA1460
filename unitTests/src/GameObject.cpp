@@ -6,6 +6,8 @@ GameObject::GameObject(std::string name) {
 
     interactionList.push_back(movestrat);
     interactionList.push_back(pickUpStrat);
+    // temporary harcoded default, should be set by selectInteraction
+    currentType = movestrat;
 }
 
 std::string GameObject::getObjectName() { return objectName; }
@@ -21,4 +23,10 @@ std::string GameObject::listInteractionTypes() {
     }
 
     return returnList;
+}
+
+std::string GameObject::setCurrentInteractionOption(std::string theOption) {
+    std::string confirmationMessage = "";
+    confirmationMessage = currentType->setOption(theOption);
+    return confirmationMessage;
 }
