@@ -4,11 +4,11 @@
 #include "GameObjectInterface.hpp"
 
 //SETUP
-GameObjectInterface interface;
 
 TEST_CASE("selectObject") {
     WHEN("Object is a 'Ball'") {
         //ACTUAL TEST
+        GameObjectInterface interface;
         std::string objectName = "Ball";
         std::string result1 = interface.selectGameObject(objectName);
         THEN("Should return 'Interactions: Move it,Pick up'") {
@@ -23,6 +23,7 @@ TEST_CASE("selectObject") {
 TEST_CASE("selectInteraction"){
         WHEN("Object is a 'Ball' and we are now selecting the interactionType 'move'") {
         //SETUP
+        GameObjectInterface interface;
         std::string objectName = "Ball";
         interface.selectGameObject(objectName);
         //ACTUAL TEST
@@ -39,6 +40,7 @@ TEST_CASE("selectInteraction"){
 TEST_CASE("setInteractionOptions") {
     WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Barbaric'") {
         //SETUP
+        GameObjectInterface interface;
         std::string objectName = "Ball";
         interface.selectGameObject(objectName);
         interface.selectInteraction("Move it");
