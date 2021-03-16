@@ -19,9 +19,6 @@ public:
     std::string listCurrentInteractionOptions();
     void startInteraction(std::string theInteractionType);
     std::string setCurrentInteractionOption(std::string theOption);
-<<<<<<< HEAD
-    void clear();
-=======
     std::string startCurrentInteraction();
->>>>>>> c01e1b7dd693c1bc930f1535ee95155d50606756
+    void clear();
 };

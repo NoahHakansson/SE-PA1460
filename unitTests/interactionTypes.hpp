@@ -50,9 +50,6 @@ public:
     void unsetOption() {
         option = "";
     }
-    std::string virtual executeInteraction()
-    {
-    }
 };
 
 class pickUpStrategy : public interactionType
