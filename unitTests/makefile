@@ -10,4 +10,4 @@ main:
 	clang++ $(APP_SRC) $(SRC) $(FLAGS) && ./$(APP_NAME)
 
 memcheck:
-	clang++ $(APP_SRC) $(SRC) $(FLAGS) && valgrind --leak-check=full ./$(APP_NAME)
+	clang++ $(APP_SRC) $(SRC) $(FLAGS) -fsanitize=address -fno-omit-frame-pointer && ./$(APP_NAME)
