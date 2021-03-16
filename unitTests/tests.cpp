@@ -102,7 +102,7 @@ TEST_CASE("setInteractionOptions - Alternative") {
         //ACTUAL TEST
         std::string theOption = "Blissful";
         std::string result3 = interface.setInteractionOption(theOption);
-        THEN("Option 'Barbaric' Should return 'FAILED' as blissful is not part of the options ") {
+        THEN("Option 'Blissful' Should return 'FAILED' as blissful is not part of the options ") {
             REQUIRE
                 (result3 == "SUCCESS");
         }
