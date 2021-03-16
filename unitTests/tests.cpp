@@ -3,8 +3,6 @@
 
 #include "GameObjectInterface.hpp"
 
-//SETUP
-
 TEST_CASE("selectObject") {
     WHEN("Object is a 'Ball'") {
         //ACTUAL TEST
