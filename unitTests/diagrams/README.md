@@ -1,9 +1,0 @@
-# Unit tests - group 6 #
-This readme was created in the purpose of giving context to our diagrams and the changes we have done compared to the system which was given to us.
-## The Diagrams ##
-The diagrams which we have added are refactored, meaning we've changed them to fit design patterns, such as state patterns and srategy patterns. The larget differences from the original ones is how Game now is split up into Interface classes. This means that GameObjects are now instead of being handled by Scene (which in turn is handled by Game), GameObjects now instead are handled by their specific interface. This means that we instead go directly to the GameObjectInterface instead of passing through Game and then into Scene. <br><br>
-We found this method of building up our system to be a lot nicer and fitting with our way of coding, plus it gives higher cohesion and less coupling in the long run, something which we very much appreciates. We hope this is not an issue for you, as it was not for Mikael when we asked him.
-## The code ##
-The code is written in C++ and has a very object oriented structure. For our test-framework we are using **CATCH/2** which is an easy to use tool for testing in C++. You can compile and run the tests by just typing `make` in the terminal and it should compile without issues. Dependencies for our makefile is **clang** as it's the specific compiler we used for this small project.
-## The tests ##
-The tests are split up into an alternative route and the "perfect" route. The perfect route is shown by the tests passed while the alternative route is shown through the tests failing. This is to easier show that the tests failed, however we could just as easily make them pass aswell through expecting their error messages in the test-conditions. However for the sake of being as obvious as possible, we chose to let them fail instead of passing.
