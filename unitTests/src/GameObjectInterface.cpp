@@ -23,6 +23,14 @@ std::string GameObjectInterface::selectGameObject(std::string theGameObject)
     return CurrentObject.listInteractionTypes();
 }
 
+std::string GameObjectInterface::selectInteraction(std::string theInteractionType) {
+    CurrentObject.startInteraction(theInteractionType);
+
+    std::string returnList = CurrentObject.listCurrentInteractionOptions();
+
+    return returnList;
+}
+
 std::string GameObjectInterface::setInteractionOption(std::string theOption)
 {
     std::string confirmationMessage = "";
