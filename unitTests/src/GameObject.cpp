@@ -53,6 +53,9 @@ void GameObject::selectStrategy(std::string theInteractionType)
             break;
         }
     }
+    if (selected == false) {
+        currentType = nullptr;
+    }
 }
 
 std::string GameObject::listCurrentInteractionOptions()
@@ -65,5 +68,11 @@ std::string GameObject::listCurrentInteractionOptions()
     }
     else {
         return "invalid interactionType";
+    }
+}
+
+void GameObject::clear() {
+    if (currentType != nullptr) {
+        currentType->unsetOption();
     }
 }

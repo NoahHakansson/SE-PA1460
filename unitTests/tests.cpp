@@ -15,6 +15,8 @@ TEST_CASE("selectObject") {
             REQUIRE
                 (result1 == "Move it,Pick up");
         }
+        //CLEAN UP
+        interface.clear();
     }
 }
 
@@ -29,18 +31,26 @@ TEST_CASE("selectInteraction"){
             REQUIRE
                 (result2 == "Options: Gently, Hard, Barbaric");
         }
+        //CLEAN UP
+        interface.clear();
     }
 }
 
 TEST_CASE("setInteractionOptions") {
     WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Barbaric'") {
+        //SETUP
+        std::string objectName = "Ball";
+        interface.selectGameObject(objectName);
+        interface.selectInteraction("Move it");
+        //ACTUAL TEST
         std::string theOption = "Barbaric";
-        std::string result2 = interface.setInteractionOption(theOption);
+        std::string result3 = interface.setInteractionOption(theOption);
         THEN("Option 'Barbaric' Should return 'SUCCESS' ") {
             REQUIRE
-                (result2 == "SUCCESS");
+                (result3 == "SUCCESS");
         }
-        
+        //CLEAN UP
+        interface.clear();
     }
 }
 

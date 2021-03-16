@@ -37,3 +37,9 @@ std::string GameObjectInterface::setInteractionOption(std::string theOption)
     confirmationMessage = CurrentObject.setCurrentInteractionOption(theOption);
     return confirmationMessage;
 }
+
+void GameObjectInterface::clear() {
+    CurrentObject.clear();
+
+    CurrentObject = GameObject();
+}

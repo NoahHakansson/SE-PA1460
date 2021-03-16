@@ -46,7 +46,9 @@ public:
 
         return returnList;
     }
-
+    void unsetOption() {
+        option = "";
+    }
     std::string executeInteraction()
     {
     }
