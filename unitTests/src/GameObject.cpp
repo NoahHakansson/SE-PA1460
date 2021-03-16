@@ -38,7 +38,7 @@ std::string GameObject::setCurrentInteractionOption(std::string theOption)
 std::string GameObject::startCurrentInteraction()
 {
     std::string interactionResponse = "";
-    
+
     return interactionResponse;
 }
 

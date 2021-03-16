@@ -38,6 +38,13 @@ std::string GameObjectInterface::setInteractionOption(std::string theOption)
     return confirmationMessage;
 }
 
+std::string GameObjectInterface::startInteraction()
+{
+    std::string interactionResponse = "";
+    interactionResponse = CurrentObject.startCurrentInteraction();
+    return interactionResponse;
+}
+
 void GameObjectInterface::clear() {
     CurrentObject.clear();
 
