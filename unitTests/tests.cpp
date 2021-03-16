@@ -22,7 +22,7 @@ TEST_CASE("selectInteraction"){
 
 TEST_CASE("setInteractionOptions") {
     WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Barbaric'") {
-        std::string theOption = "Hard";
+        std::string theOption = "Barbaric";
         std::string result2 = interface.setInteractionOption(theOption);
         THEN("Option 'Barbaric' Should return 'SUCCESS' ") {
             REQUIRE
