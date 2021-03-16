@@ -12,7 +12,8 @@ GameObject::GameObject(std::string name) {
 
 std::string GameObject::getObjectName() { return objectName; }
 
-std::string GameObject::listInteractionTypes() {
+std::string GameObject::listInteractionTypes()
+{
     std::string returnList = "";
     for (int i = 0;i < interactionList.size();i++) {
         returnList += (interactionList[i]->getName());
@@ -25,7 +26,8 @@ std::string GameObject::listInteractionTypes() {
     return returnList;
 }
 
-std::string GameObject::setCurrentInteractionOption(std::string theOption) {
+std::string GameObject::setCurrentInteractionOption(std::string theOption)
+{
     std::string confirmationMessage = "";
     confirmationMessage = currentType->setOption(theOption);
     return confirmationMessage;

@@ -29,6 +29,10 @@ public:
         confirmationMessage = this->optionConfirmation(theOption);
         return confirmationMessage;
     }
+    std::string executeInteraction()
+    {
+        
+    }
 };
 
 class pickUpStrategy : public interactionType

@@ -1,11 +1,13 @@
 #include "../GameObjectInterface.hpp"
 
-GameObjectInterface::GameObjectInterface() {
+GameObjectInterface::GameObjectInterface()
+{
     GameObject ball("Ball");
     gameobjects.push_back(ball);
 }
 
-std::string GameObjectInterface::selectGameObject(std::string theGameObject) {
+std::string GameObjectInterface::selectGameObject(std::string theGameObject)
+{
     bool selected = false;
     for (int i = 0;i < gameobjects.size();i++) {
         if (gameobjects[i].getObjectName() == theGameObject) {
@@ -21,7 +23,8 @@ std::string GameObjectInterface::selectGameObject(std::string theGameObject) {
     return CurrentObject.listInteractionTypes();
 }
 
-std::string GameObjectInterface::setInteractionOption(std::string theOption) {
+std::string GameObjectInterface::setInteractionOption(std::string theOption)
+{
     std::string confirmationMessage = "";
     confirmationMessage = CurrentObject.setCurrentInteractionOption(theOption);
     return confirmationMessage;

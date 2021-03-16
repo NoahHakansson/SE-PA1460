@@ -9,6 +9,7 @@ private:
     std::string objectName;
     std::vector<interactionType *> interactionList;
     interactionType* currentType;
+    std::string interactionResponse;
 public:
     GameObject(std::string name);
     GameObject() {}
