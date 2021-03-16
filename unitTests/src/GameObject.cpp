@@ -35,6 +35,13 @@ std::string GameObject::setCurrentInteractionOption(std::string theOption)
     return confirmationMessage;
 }
 
+std::string GameObject::startCurrentInteraction()
+{
+    std::string interactionResponse = "";
+    
+    return interactionResponse;
+}
+
 void GameObject::startInteraction(std::string theInteractionType)
 {
     selectStrategy(theInteractionType);
