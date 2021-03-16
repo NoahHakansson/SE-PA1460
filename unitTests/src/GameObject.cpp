@@ -38,8 +38,16 @@ std::string GameObject::setCurrentInteractionOption(std::string theOption)
 std::string GameObject::startCurrentInteraction()
 {
     std::string interactionResponse = "";
-
+    interactionResponse += "Interaction: ";
+    interactionResponse += currentType->getName();
+    currentState = changeState(interactionResponse);
+    interactionResponse += (",State: " + currentState->getState());
     return interactionResponse;
+}
+
+ObjectState* GameObject::changeState(std::string interactionResponse)
+{
+
 }
 
 void GameObject::startInteraction(std::string theInteractionType)
