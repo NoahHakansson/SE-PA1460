@@ -23,15 +23,12 @@ protected:
 
 public:
     std::string virtual getName() = 0;
+    std::string virtual executeInteraction() = 0;
     std::string setOption(std::string theOption)
     {
         std::string confirmationMessage = "";
         confirmationMessage = this->optionConfirmation(theOption);
         return confirmationMessage;
-    }
-    std::string executeInteraction()
-    {
-        
     }
 };
 
@@ -44,6 +41,12 @@ public:
     {
         return "Pick up";
     }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You pick it up " + this->option;
+        return interactionResponse;
+    }
 };
 
 class moveStrategy : public interactionType
@@ -55,6 +58,12 @@ public:
     {
         return "Move it";
     }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You move it " + this->option;
+        return interactionResponse;
+    }
 };
 
 class dropStrategy : public interactionType
@@ -65,5 +74,11 @@ public:
     std::string getName() override
     {
         return "Drop it";
+    }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You drop it " + this->option;
+        return interactionResponse;
     }
 };

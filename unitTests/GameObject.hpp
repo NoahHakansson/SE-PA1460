@@ -9,11 +9,12 @@ private:
     std::string objectName;
     std::vector<interactionType *> interactionList;
     interactionType* currentType;
-    std::string interactionResponse;
+    std::string currentState;
 public:
     GameObject(std::string name);
     GameObject() {}
     std::string getObjectName();
     std::string listInteractionTypes();
     std::string setCurrentInteractionOption(std::string theOption);
+    std::string startCurrentInteraction();
 };

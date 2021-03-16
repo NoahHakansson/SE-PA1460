@@ -32,3 +32,9 @@ std::string GameObject::setCurrentInteractionOption(std::string theOption)
     confirmationMessage = currentType->setOption(theOption);
     return confirmationMessage;
 }
+
+std::string GameObject::startCurrentInteraction()
+{
+    std::string interactionResponse = "";
+    
+}
