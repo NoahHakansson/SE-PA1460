@@ -1,8 +1,9 @@
 #include "../GameObject.hpp"
-GameObject::GameObject(std::string name) {
+GameObject::GameObject(std::string name)
+{
     objectName = name;
-    moveStrategy* movestrat = new moveStrategy;
-    pickUpStrategy* pickUpStrat = new pickUpStrategy;
+    moveStrategy *movestrat = new moveStrategy;
+    pickUpStrategy *pickUpStrat = new pickUpStrategy;
 
     interactionList.push_back(movestrat);
     interactionList.push_back(pickUpStrat);
@@ -15,9 +16,10 @@ std::string GameObject::getObjectName() { return objectName; }
 std::string GameObject::listInteractionTypes()
 {
     std::string returnList = "";
-    for (int i = 0;i < interactionList.size();i++) {
+    for (int i = 0; i < interactionList.size(); i++)
+    {
         returnList += (interactionList[i]->getName());
-        if (i < interactionList.size() -1)
+        if (i < interactionList.size() - 1)
         {
             returnList += ",";
         }
@@ -37,4 +39,38 @@ std::string GameObject::startCurrentInteraction()
 {
     std::string interactionResponse = "";
     
+    return interactionResponse;
+}
+
+void GameObject::startInteraction(std::string theInteractionType)
+{
+    selectStrategy(theInteractionType);
+}
+
+void GameObject::selectStrategy(std::string theInteractionType)
+{
+    bool selected = false;
+    for (int i = 0; i < interactionList.size(); i++)
+    {
+        if (interactionList[i]->getName() == theInteractionType)
+        {
+            currentType = interactionList[i];
+            selected = true;
+
+            break;
+        }
+    }
+}
+
+std::string GameObject::listCurrentInteractionOptions()
+{
+    if (currentType != nullptr)
+    {
+        std::string returnList = currentType->listOptions();
+
+        return returnList;
+    }
+    else {
+        return "invalid interactionType";
+    }
 }

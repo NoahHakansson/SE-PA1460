@@ -30,6 +30,23 @@ public:
         confirmationMessage = this->optionConfirmation(theOption);
         return confirmationMessage;
     }
+    std::string listOptions()
+    {
+        std::string returnList = "Options: ";
+        for (int i = 0; i < optionList.size(); i++)
+        {
+            if (i < optionList.size() - 1)
+            {
+                returnList += (optionList[i] + ", ");
+            }
+            else
+            {
+                returnList += optionList[i];
+            }
+        }
+
+        return returnList;
+    }
 };
 
 class pickUpStrategy : public interactionType
