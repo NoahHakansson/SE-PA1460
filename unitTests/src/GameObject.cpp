@@ -111,4 +111,5 @@ void GameObject::clear() {
     if (currentType != nullptr) {
         currentType->unsetOption();
     }
+    currentState = nullptr;
 }
