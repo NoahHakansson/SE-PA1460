@@ -5,9 +5,10 @@ class interactionType
 {
 protected:
     std::vector<std::string> optionList = {};
-    std::string option = "";
+    std::string option = "NULL";
     std::string optionConfirmation(std::string theOption)
     {
+        this->unsetOption(); // reset on new try.
         for (int i = 0; i < this->optionList.size(); i++)
         {
             if (theOption == this->optionList[i])
@@ -46,7 +47,10 @@ public:
         return returnList;
     }
     void unsetOption() {
-        option = "";
+        this->option = "NULL";
+    }
+    std::string getOption(){
+        return this->option;
     }
 };
 
@@ -62,8 +66,13 @@ public:
 
     std::string executeInteraction() override
     {
-        std::string interactionResponse = "You pick it up " + this->option;
-        return interactionResponse;
+        if (this->option != "NULL"){
+            std::string interactionResponse = "You pick it up " + this->option;
+            return interactionResponse;
+        }
+        else {
+            return "NO OPTION SET!";
+        }
     }
 };
 
@@ -79,8 +88,13 @@ public:
 
     std::string executeInteraction() override
     {
-        std::string interactionResponse = "You move it " + this->option;
-        return interactionResponse;
+        if (this->option != ""){
+            std::string interactionResponse = "You move it " + this->option;
+            return interactionResponse;
+        }
+        else {
+            return "NO OPTION SET!";
+        }
     }
 };
 
@@ -96,7 +110,12 @@ public:
 
     std::string executeInteraction() override
     {
-        std::string interactionResponse = "You drop it " + this->option;
-        return interactionResponse;
+        if (this->option != ""){
+            std::string interactionResponse = "You drop it " + this->option;
+            return interactionResponse;
+        }
+        else {
+            return "NO OPTION SET!";
+        }
     }
 };

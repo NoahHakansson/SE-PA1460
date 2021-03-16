@@ -12,7 +12,7 @@ private:
     interactionType* currentType = nullptr;
     ObjectState* currentState = nullptr;
     void selectStrategy(std::string theInteractionType);
-    ObjectState* changeState(std::string interactionResponse);
+    void changeState(std::string interactionResponse);
 public:
     GameObject(std::string name);
     GameObject() {}
