@@ -7,7 +7,7 @@ class interactionType
 protected:
     std::vector<std::string> optionList = {};
     std::string option = "";
-    std::string virtual optionConfirmation(std::string theOption)
+    std::string optionConfirmation(std::string theOption)
     {
         for (int i = 0; i < this->optionList.size(); i++)
         {
@@ -34,9 +34,8 @@ public:
 class pickUpStrategy : public interactionType
 {
 protected:
-    std::vector<std::string> optionList = {"Gently", "Hard"};
-
 public:
+    pickUpStrategy() { optionList = {"Gently", "Hard"}; }
     std::string getName() override
     {
         return "Pick up";
@@ -57,9 +56,8 @@ public:
 class dropStrategy : public interactionType
 {
 protected:
-    std::vector<std::string> optionList = {"Gently", "Hard", "Nonchalant"};
-
 public:
+    dropStrategy() { optionList = {"Gently", "Hard", "Nonchalant"}; }
     std::string getName() override
     {
         return "Drop it";

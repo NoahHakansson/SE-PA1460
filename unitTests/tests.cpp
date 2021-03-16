@@ -8,9 +8,10 @@ GameObjectInterface interface;
 TEST_CASE("selectObject") {
     WHEN("Object is a 'Ball'") {
         std::string objectName = "Ball";
+        std::string result1 = interface.selectGameObject(objectName);
         THEN("Should return 'Interactions: Move it,Pick up'") {
             REQUIRE
-                (interface.selectGameObject(objectName) == "Move it,Pick up");
+                (result1 == "Move it,Pick up");
         }
     }
 }
@@ -21,10 +22,11 @@ TEST_CASE("selectInteraction"){
 
 TEST_CASE("setInteractionOptions") {
     WHEN("Object is a 'Ball' and interactionType is 'MoveStrategy' We choose the option 'Barbaric'") {
-        std::string theOption = "Barbaric";
+        std::string theOption = "Hard";
+        std::string result2 = interface.setInteractionOption(theOption);
         THEN("Option 'Barbaric' Should return 'SUCCESS' ") {
             REQUIRE
-                (interface.setInteractionOption(theOption) == "SUCCESS");
+                (result2 == "SUCCESS");
         }
         
     }
