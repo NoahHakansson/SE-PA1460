@@ -5,8 +5,9 @@
 
 TEST_CASE("selectObject") {
     WHEN("Object is a 'Ball'") {
-        //ACTUAL TEST
+        //SETUP
         GameObjectInterface interface;
+        //ACTUAL TEST
         std::string objectName = "Ball";
         std::string result1 = interface.selectGameObject(objectName);
         THEN("Should return 'Interactions: Move it,Pick up'") {
