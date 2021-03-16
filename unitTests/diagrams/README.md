@@ -1,5 +1,4 @@
 # Unit tests - group 6 #
-## Context ##
 This readme was created in the purpose of giving context to our diagrams and the changes we have done compared to the system which was given to us.
 ## The Diagrams ##
 The diagrams which we have added are refactored, meaning we've changed them to fit design patterns, such as state patterns and srategy patterns. The larget differences from the original ones is how Game now is split up into Interface classes. This means that GameObjects are now instead of being handled by Scene (which in turn is handled by Game), GameObjects now instead are handled by their specific interface. This means that we instead go directly to the GameObjectInterface instead of passing through Game and then into Scene. <br><br>
