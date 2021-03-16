@@ -17,7 +17,7 @@ std::string GameObjectInterface::selectGameObject(std::string theGameObject)
     }
 
     if (selected == false) {
-        return "null";
+        return "Not existing GameObject";
     }
 
     return CurrentObject.listInteractionTypes();
