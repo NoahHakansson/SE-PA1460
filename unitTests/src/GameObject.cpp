@@ -1,4 +1,4 @@
-#include "../GameObject.hpp"
+#include "GameObject.hpp"
 GameObject::GameObject(std::string name)
 {
     objectName = name;
