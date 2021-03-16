@@ -45,6 +45,9 @@ public:
 
         return returnList;
     }
+    void unsetOption() {
+        option = "";
+    }
 };
 
 class pickUpStrategy : public interactionType

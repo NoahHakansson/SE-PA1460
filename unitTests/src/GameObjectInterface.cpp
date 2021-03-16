@@ -44,3 +44,9 @@ std::string GameObjectInterface::startInteraction()
     interactionResponse = CurrentObject.startCurrentInteraction();
     return interactionResponse;
 }
+
+void GameObjectInterface::clear() {
+    CurrentObject.clear();
+
+    CurrentObject = GameObject();
+}
