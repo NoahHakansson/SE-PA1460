@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <iostream>
 
 class interactionType
 {
@@ -17,7 +16,6 @@ protected:
                 return "SUCCESS";
             }
         }
-        std::cout << this->optionList.size();
         return "FAILED";
     }
 
