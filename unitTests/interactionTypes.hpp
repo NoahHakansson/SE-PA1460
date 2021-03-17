@@ -100,3 +100,88 @@ public:
         return interactionResponse;
     }
 };
+
+class lookStrategy : public interactionType
+{
+protected:
+public:
+    lookStrategy() { optionList = {"peek", "inspect"}; }
+    std::string getName() override
+    {
+        return "Look at it";
+    }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You look at " + this->option;
+        return interactionResponse;
+    }
+};
+
+class openStrategy : public interactionType
+{
+protected:
+public:
+    openStrategy() { optionList = {"Gently", "Hard", "Barbaric"}; }
+    std::string getName() override
+    {
+        return "Open it";
+    }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You open " + this->option;
+        return interactionResponse;
+    }
+};
+
+class TurnOnStrategy : public interactionType
+{
+protected:
+public:
+    TurnOnStrategy() { optionList = {"Gently", "Hard", "Nonchalant"}; }
+    std::string getName() override
+    {
+        return "Turn it on";
+    }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You turn" + this->option + "on ";
+        return interactionResponse;
+    }
+};
+
+class TurnOffStrategy : public interactionType
+{
+protected:
+public:
+    TurnOffStrategy() { optionList = {"Gently", "Hard", "Nonchalant"}; }
+    std::string getName() override
+    {
+        return "Turn it off";
+    }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You turn" + this->option + "off ";
+        return interactionResponse;
+    }
+};
+
+class TasteStrategy : public interactionType
+{
+protected:
+public:
+    TasteStrategy() { optionList = {"lick", "suckle", "gurgel"}; }
+    std::string getName() override
+    {
+        return "Taste it";
+    }
+
+    std::string executeInteraction() override
+    {
+        std::string interactionResponse = "You taste" + this->option;
+        return interactionResponse;
+    }
+};
