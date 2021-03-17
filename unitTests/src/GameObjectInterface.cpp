@@ -1,4 +1,4 @@
-#include "../GameObjectInterface.hpp"
+#include "GameObjectInterface.hpp"
 
 GameObjectInterface::GameObjectInterface()
 {

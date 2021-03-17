@@ -1,14 +1,15 @@
-#include "../GameObject.hpp"
+#include "GameObject.hpp"
 GameObject::GameObject(std::string name)
 {
     objectName = name;
-    moveStrategy *movestrat = new moveStrategy;
-    pickUpStrategy *pickUpStrat = new pickUpStrategy;
+    moveStrategy* movestrat = new moveStrategy;
+    pickUpStrategy* pickUpStrat = new pickUpStrategy;
+    currentState = new OnGroundState;
 
     interactionList.push_back(movestrat);
     interactionList.push_back(pickUpStrat);
     // temporary harcoded default, should be set by selectInteraction
-    currentType = movestrat;
+    // currentType = movestrat;
 }
 
 std::string GameObject::getObjectName() { return objectName; }
@@ -31,23 +32,43 @@ std::string GameObject::listInteractionTypes()
 std::string GameObject::setCurrentInteractionOption(std::string theOption)
 {
     std::string confirmationMessage = "";
-    confirmationMessage = currentType->setOption(theOption);
+    if (currentType != nullptr){
+        confirmationMessage = currentType->setOption(theOption);
+    }else {
+        confirmationMessage = "Can't choose option, NO INTERACTIONTYPE SELECTED!";
+    }
     return confirmationMessage;
 }
 
 std::string GameObject::startCurrentInteraction()
 {
     std::string interactionResponse = "";
-    interactionResponse += "Interaction: ";
-    interactionResponse += currentType->getName();
-    currentState = changeState(interactionResponse);
-    interactionResponse += (",State: " + currentState->getState());
+    if (currentType != nullptr){
+        interactionResponse += currentType->getName();
+        this->changeState(interactionResponse);
+        interactionResponse = "Interaction: " + interactionResponse;
+        interactionResponse += ",Option: ";
+        interactionResponse += currentType->getOption();
+        interactionResponse += (",State: " + currentState->getState());
+    }else {
+        interactionResponse = "Can't start interaction, NO INTERACTIONTYPE SELECTED!";
+    }
     return interactionResponse;
 }
 
-ObjectState* GameObject::changeState(std::string interactionResponse)
+void GameObject::changeState(std::string interactionResponse)
 {
-
+    if (currentType->getOption() != "NULL"){
+        if (interactionResponse == "Pick up"){
+            currentState = new PickedUpState;
+        }
+        else if (interactionResponse == "Move it"){
+            currentState = new MovedState;
+        }
+        else if (interactionResponse == "Drop it"){
+            currentState = new OnGroundState;
+        }
+    }
 }
 
 void GameObject::startInteraction(std::string theInteractionType)
@@ -90,4 +111,5 @@ void GameObject::clear() {
     if (currentType != nullptr) {
         currentType->unsetOption();
     }
+    currentState = nullptr;
 }
