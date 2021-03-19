@@ -13,3 +13,6 @@ main:
 
 memcheck:
 	clang++ $(APP_SRC) $(SRC) $(FLAGS) -fsanitize=address -fno-omit-frame-pointer && ./$(APP_NAME)
+
+zip:
+	zip unitTest.zip . -r -x uTests '*diagrams*'
