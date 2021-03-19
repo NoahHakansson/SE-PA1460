@@ -1,6 +1,6 @@
 INCLUDE_DIRS= include
 INC_PARAMS=$(foreach d, $(INCLUDE_DIRS), -I$d)
-APP_NAME=uTests
+APP_NAME=uTests.app
 FLAGS=-Wall -o $(APP_NAME) $(INC_PARAMS)
 
 APP_SRC=tests.cpp
@@ -15,4 +15,4 @@ memcheck:
 	clang++ $(APP_SRC) $(SRC) $(FLAGS) -fsanitize=address -fno-omit-frame-pointer && ./$(APP_NAME)
 
 zip:
-	zip unitTest.zip . -r -x uTests '*diagrams*'
+	zip unitTest.zip . -r -x uTests.app
